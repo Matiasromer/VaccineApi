@@ -11,7 +11,7 @@ namespace VaccineApi
     {
         [Key]
         public int Barn_Id { get; set; }
-
+        //datetime henter tid uden at det er vigtigt
         public DateTime Barn_Foedsel { get; set; }
 
         [Required]
