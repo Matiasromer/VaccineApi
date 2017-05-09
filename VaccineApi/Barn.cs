@@ -10,8 +10,9 @@ namespace VaccineApi
     public partial class Barn
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Barn_Id { get; set; }
+
+        public DateTime Barn_Foedsel { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -19,6 +20,6 @@ namespace VaccineApi
 
         public int Device_id { get; set; }
 
-        public int Gender { get; set; }
+        public string Gender { get; set; }
     }
 }

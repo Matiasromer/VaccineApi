@@ -8,7 +8,7 @@ namespace VaccineApi
     public partial class VaccineContext : DbContext
     {
         public VaccineContext()
-            : base("name=VaccineContext")
+            : base("name=VaccineContext1")
         {
             base.Configuration.ProxyCreationEnabled = false;
         }
@@ -18,6 +18,7 @@ namespace VaccineApi
         public virtual DbSet<Historik> Historik { get; set; }
         public virtual DbSet<Kalender> Kalender { get; set; }
         public virtual DbSet<Vaccine> Vaccine { get; set; }
+        public virtual DbSet<Vaccine_Table> Vaccine_Table { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
