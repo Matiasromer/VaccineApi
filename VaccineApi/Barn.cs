@@ -20,6 +20,6 @@ namespace VaccineApi
 
         public int Device_id { get; set; }
 
-        public string Gender { get; set; }
+        public String Gender { get; set; }
     }
 }

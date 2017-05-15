@@ -201,6 +201,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KalenderController.cs" />
     <Compile Include="Controllers\VaccineController.cs" />
+    <Compile Include="Controllers\Vaccine_TableController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Global.asax.cs">
