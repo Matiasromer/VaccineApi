@@ -17,7 +17,7 @@ namespace VaccineApi
         public virtual DbSet<Device> Device { get; set; }
         public virtual DbSet<Historik> Historik { get; set; }
         public virtual DbSet<Kalender> Kalender { get; set; }
-        public virtual DbSet<Vaccine> Vaccine { get; set; }
+        public virtual DbSet<Vaccine> Vaccine { get; set; } 
         public virtual DbSet<Vaccine_Table> Vaccine_Table { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
