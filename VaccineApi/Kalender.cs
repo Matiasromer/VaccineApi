@@ -10,16 +10,12 @@ namespace VaccineApi
     public partial class Kalender
     {
         [Key]
-        [Column(Order = 0)]
+        public int Kalender_id { get; set; }
+
         public DateTime Dato { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Barn_id { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Vac_navn { get; set; }
+        public int Vac_id { get; set; }
     }
 }

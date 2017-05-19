@@ -14,120 +14,105 @@ namespace VaccineApi.Controllers
 {
     public class KalenderController : ApiController
     {
-        private VaccineContext db = new VaccineContext();
+            private VaccineContext db = new VaccineContext();
 
-        // GET: api/Kalender
-        public IQueryable<Kalender> GetKalender()
-        {
-            return db.Kalender;
-        }
-
-        // GET: api/Kalender/5
-        [ResponseType(typeof(Kalender))]
-        public IHttpActionResult GetKalender(DateTime id)
-        {
-            Kalender kalender = db.Kalender.Find(id);
-            if (kalender == null)
+            // GET: api/Kalenders
+            public IQueryable<Kalender> GetKalender()
             {
-                return NotFound();
+                return db.Kalender;
             }
 
-            return Ok(kalender);
-        }
-
-        // PUT: api/Kalender/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutKalender(DateTime id, Kalender kalender)
-        {
-            if (!ModelState.IsValid)
+            // GET: api/Kalenders/5
+            [ResponseType(typeof(Kalender))]
+            public IHttpActionResult GetKalender(int id)
             {
-                return BadRequest(ModelState);
-            }
-
-            if (id != kalender.Dato)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(kalender).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!KalenderExists(id))
+                Kalender kalender = db.Kalender.Find(id);
+                if (kalender == null)
                 {
                     return NotFound();
                 }
-                else
+
+                return Ok(kalender);
+            }
+
+            // PUT: api/Kalenders/5
+            [ResponseType(typeof(void))]
+            public IHttpActionResult PutKalender(int id, Kalender kalender)
+            {
+                if (!ModelState.IsValid)
                 {
-                    throw;
+                    return BadRequest(ModelState);
                 }
+
+                if (id != kalender.Kalender_id)
+                {
+                    return BadRequest();
+                }
+
+                db.Entry(kalender).State = EntityState.Modified;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!KalenderExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Kalender
-        [ResponseType(typeof(Kalender))]
-        public IHttpActionResult PostKalender(Kalender kalender)
-        {
-            if (!ModelState.IsValid)
+            // POST: api/Kalenders
+            [ResponseType(typeof(Kalender))]
+            public IHttpActionResult PostKalender(Kalender kalender)
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            db.Kalender.Add(kalender);
-
-            try
-            {
+                db.Kalender.Add(kalender);
                 db.SaveChanges();
+
+                return CreatedAtRoute("DefaultApi", new { id = kalender.Kalender_id }, kalender);
             }
-            catch (DbUpdateException)
+
+            // DELETE: api/Kalenders/5
+            [ResponseType(typeof(Kalender))]
+            public IHttpActionResult DeleteKalender(int id)
             {
-                if (KalenderExists(kalender.Dato))
+                Kalender kalender = db.Kalender.Find(id);
+                if (kalender == null)
                 {
-                    return Conflict();
+                    return NotFound();
                 }
-                else
+
+                db.Kalender.Remove(kalender);
+                db.SaveChanges();
+
+                return Ok(kalender);
+            }
+
+            protected override void Dispose(bool disposing)
+            {
+                if (disposing)
                 {
-                    throw;
+                    db.Dispose();
                 }
+                base.Dispose(disposing);
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = kalender.Dato }, kalender);
-        }
-
-        // DELETE: api/Kalender/5
-        [ResponseType(typeof(Kalender))]
-        public IHttpActionResult DeleteKalender(DateTime id)
-        {
-            Kalender kalender = db.Kalender.Find(id);
-            if (kalender == null)
+            private bool KalenderExists(int id)
             {
-                return NotFound();
+                return db.Kalender.Count(e => e.Kalender_id == id) > 0;
             }
-
-            db.Kalender.Remove(kalender);
-            db.SaveChanges();
-
-            return Ok(kalender);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool KalenderExists(DateTime id)
-        {
-            return db.Kalender.Count(e => e.Dato == id) > 0;
         }
     }
-}
