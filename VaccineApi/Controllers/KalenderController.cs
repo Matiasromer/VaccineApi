@@ -35,8 +35,10 @@ namespace VaccineApi.Controllers
                 return Ok(kalender);
             }
 
-            // PUT: api/Kalenders/5
-            [ResponseType(typeof(void))]
+       
+
+        // PUT: api/Kalenders/5
+        [ResponseType(typeof(void))]
             public IHttpActionResult PutKalender(int id, Kalender kalender)
             {
                 if (!ModelState.IsValid)

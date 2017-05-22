@@ -197,10 +197,12 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Barn.cs" />
     <Compile Include="Controllers\BarnController.cs" />
+    <Compile Include="Controllers\GetKalenderBarnController.cs" />
     <Compile Include="Controllers\HistorikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KalenderController.cs" />
     <Compile Include="Controllers\VaccineController.cs" />
+    <Compile Include="Controllers\VaccinePlanViewsController.cs" />
     <Compile Include="Controllers\VaccineViewsController.cs" />
     <Compile Include="Controllers\Vaccine_TableController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -210,6 +212,8 @@
     </Compile>
     <Compile Include="Historik.cs" />
     <Compile Include="Kalender.cs" />
+    <Compile Include="Models\VaccinePlanView.cs" />
+    <Compile Include="Models\VaccinePlanViewContext.cs" />
     <Compile Include="Models\VaccineView.cs" />
     <Compile Include="Models\VacViewContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

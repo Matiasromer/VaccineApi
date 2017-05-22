@@ -25,5 +25,7 @@ namespace VaccineApi.Models
                 .Property(e => e.Vac_Info)
                 .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<VaccineApi.Models.VaccinePlanView> VaccinePlanViews { get; set; }
     }
 }
