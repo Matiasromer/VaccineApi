@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KalenderController.cs" />
     <Compile Include="Controllers\VaccineController.cs" />
+    <Compile Include="Controllers\VaccinePlanView2Controller.cs" />
     <Compile Include="Controllers\VaccinePlanViewsController.cs" />
     <Compile Include="Controllers\VaccineViewsController.cs" />
     <Compile Include="Controllers\Vaccine_TableController.cs" />
@@ -259,7 +260,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
